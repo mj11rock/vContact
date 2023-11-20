@@ -3,15 +3,16 @@
     <div
       class="flex flex-row justify-between text-left items-center gap-4 border-b"
     >
-      <div class="w-full">Full name</div>
-      <div class="w-full">Phone</div>
-      <div class="w-full">Email</div>
-      <div class="w-full">Tag</div>
+      <div class="w-[16%]" v-for="(item, index) in HEADERS" :key="index">
+        {{ item }}
+      </div>
     </div>
-    <div class="">
+    <div>
       <ContactCard
-        v-for="(item, index) in dummyData"
-        :key="index"
+        v-for="item in contactsList"
+        :key="item.id"
+        :id="item.id"
+        :avatar="item.avatar"
         :full-name="item.name"
         :email="item.email"
         :phone="item.phone"
@@ -21,21 +22,17 @@
   </div>
 </template>
 <script setup lang="ts">
+import { useContacts } from "@/stores/contacts";
 import ContactCard from "./ContactCard.vue";
-const dummyData = [
-  {
-    id: 1,
-    name: "John Doe",
-    phone: "08123456789",
-    email: "test@gmail.com",
-    tag: "friends",
-  },
-  {
-    id: 2,
-    name: "John Doe 2",
-    phone: "08123456789",
-    email: "test@gmail.com",
-    tag: "family",
-  },
+
+const HEADERS: string[] = [
+  "Full name",
+  "Phone",
+  "Email",
+  "Tag",
+  "Actions",
 ];
+
+const contactsStore = useContacts();
+const contactsList = contactsStore.contacts;
 </script>

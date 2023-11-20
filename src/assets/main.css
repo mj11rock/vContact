@@ -1,11 +1,14 @@
-/* @import './base.css'; */
+@import './tailwind.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 #app {
- 
+  width: 100%;
   font-weight: normal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 a,

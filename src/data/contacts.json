@@ -1,0 +1,18 @@
+[
+  {
+    "id": 0,
+    "name": "Jhon Travis",
+    "email": "mymail@gmail.com",
+    "phone": "123123123",
+    "tag": 0,
+    "avatar": "https://ui-avatars.com/api/?name=John+Travis&size=128&rounded=true&background=0D8ABC&color=fff"
+  },
+  {
+    "id": 1,
+    "name": "Myke Tyson",
+    "email": "tysontopG@gmail.com",
+    "phone": "99899123123",
+    "tag": 0,
+    "avatar": "https://ui-avatars.com/api/?name=Myke+Tyson&size=128&rounded=true&background=0D8ABC&color=fff"
+  }
+]

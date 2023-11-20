@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import {  RouterView } from 'vue-router'
 import MainHeader from './components/MainHeader.vue'
 </script>
 
 <template>
   <MainHeader />
-  <RouterView class="mt-[90px]" />
+  <RouterView />
 </template>
 
 <style scoped>

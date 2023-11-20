@@ -1,6 +1,6 @@
 <template>
   <header
-    class="relative m-5 w-[100dvw] flex justify-center text-center h-[80px]"
+    class="container mx-auto m-5 w-[90vw] flex justify-center text-center h-[80px]"
   >
     <div class="container">
       <input
