@@ -1,7 +1,7 @@
 <template>
   <main class="container mx-auto">
     <div class="flex flex-row items-center">
-      <h1 class="my-4">Edit Contact</h1>
+      <h1 class="mb-5 text-3xl">Edit Contact</h1>
     </div>
     <div>
       <ContactsEdit ref="editRef" :id="id" />
@@ -17,7 +17,7 @@
       </button>
       <button
         class="h-8 border text-center rounded-lg w-1/2 bg-gray-200 text-black"
-        to="/contacts"
+        @click="() => router.push('/')"
       >
         Back
       </button>

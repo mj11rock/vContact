@@ -2,7 +2,7 @@ import {ref, computed} from "vue";
 import {defineStore} from "pinia";
 import initialList from "@/data/contacts.json";
 import type {IContact} from "@/types";
-import { useTags } from "./tags";
+import {useTags} from "./tags";
 
 export const useContacts = defineStore("contacts", () => {
   const tags = useTags();
@@ -19,7 +19,7 @@ export const useContacts = defineStore("contacts", () => {
   };
   const getContact = (id: number): IContact => {
     const contact = contacts.value.find((c) => c.id === id);
-    if(contact) return contact;
+    if (contact) return contact;
     else throw new Error("Contact not found");
   };
   const removeContact = (id: number) => {
@@ -42,7 +42,7 @@ export const useContacts = defineStore("contacts", () => {
         // contactTag.includes(lowerCaseQuery)
       );
     });
-  }
+  };
 
   return {
     contacts,
@@ -51,6 +51,6 @@ export const useContacts = defineStore("contacts", () => {
     editContact,
     getContact,
     removeContact,
-    searchContacts
+    searchContacts,
   };
 });

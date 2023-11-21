@@ -22,16 +22,10 @@
   </div>
 </template>
 <script setup lang="ts">
-import { useContacts } from "@/stores/contacts";
+import {useContacts} from "@/stores/contacts";
 import ContactCard from "./ContactCard.vue";
 
-const HEADERS: string[] = [
-  "Full name",
-  "Phone",
-  "Email",
-  "Tag",
-  "Actions",
-];
+const HEADERS: string[] = ["Full name", "Phone", "Email", "Tag", "Actions"];
 
 const contactsStore = useContacts();
 const contactsList = contactsStore.contacts;

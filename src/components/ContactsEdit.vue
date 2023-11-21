@@ -12,9 +12,11 @@
       <label for="name">Email:</label>
       <input type="text" v-model="email" :placeholder="data.email" />
     </div>
-    <div class="form-input" v-if="tagsList.length">
-      <select name="tag" id="tag" :value="tagsList[data.tag ? data.tag : 0]">
-        <option v-for="item in tagsList" :value="item.id">{{ item.name }}</option>
+    <div class="form-input" v-if="tagsList.length > 0">
+      <select name="tag" id="tag" v-model="tag">
+        <option v-for="item in tagsList" :value="item.id">
+          {{ item.name }}
+        </option>
       </select>
     </div>
   </div>
@@ -23,10 +25,9 @@
 <script setup lang="ts">
 import {defineProps, ref, defineExpose} from "vue";
 import {useContacts} from "@/stores/contacts";
-import { useTags } from "@/stores/tags";
+import {useTags} from "@/stores/tags";
 // @ts-ignore
-import {generateAvatar} from '@/utils/generateAvatar'
-
+import {generateAvatar} from "@/utils/generateAvatar";
 import type {IContact} from "@/types/contacts";
 
 const props = defineProps({
@@ -47,7 +48,6 @@ const phone = ref<string>(data.value.phone);
 const email = ref<string>(data.value.email);
 const tag = ref<number>(data.value.tag);
 
-
 const submit = () => {
   const newContactData: IContact = {
     id: +props.id,
@@ -56,12 +56,11 @@ const submit = () => {
     email: email.value,
     tag: tag.value,
     avatar: generateAvatar(name.value),
-  }
+  };
   const contactData = {
     ...data.value,
     ...newContactData,
   };
-  console.log(contactData)
   if (contactData) {
     contactsStore.editContact(contactData);
   }

@@ -17,17 +17,23 @@
       {{ email }}
     </div>
     <div class="w-[16%]">
-      {{ tag === 0 ? '' : tag }}
+      {{ tag === 0 ? "" : tagsList.find((item) => item.id === tag)?.name }}
     </div>
     <div class="actions flex flex-row items-center text-white gap-5 w-[16%]">
-      <button @click="handleEdit" class="action-button bg-blue-400">edit</button>
-      <button class="action-button bg-red-400">remove</button>
+      <button @click="handleEdit" class="action-button bg-blue-400">
+        edit
+      </button>
+      <button @click="handleRemove" class="action-button bg-red-400">
+        remove
+      </button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
+import {useRouter} from "vue-router";
+import {useTags} from "@/stores/tags";
+import {useContacts} from "@/stores/contacts";
 
 const props = defineProps({
   id: {
@@ -56,9 +62,14 @@ const props = defineProps({
   },
 });
 const router = useRouter();
+const tagsStore = useTags();
+const contactsStore = useContacts();
 
+const tagsList = tagsStore.tags;
 const handleEdit = () => {
-  router.push(`/edit/${props.id}`)
-  
+  router.push(`/edit/${props.id}`);
+};
+const handleRemove = () => {
+  contactsStore.removeContact(props.id);
 };
 </script>
