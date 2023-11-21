@@ -1,22 +1,18 @@
 import {defineStore} from "pinia";
 import {ref} from "vue";
-
-interface Tag {
-  id: number;
-  name: string;
-}
+import type { ITag } from "@/types";
 
 export const useTags = defineStore("tags", () => {
-  const tags = ref<Tag[]>([]);
+  const tags = ref<ITag[]>([]);
 
-  const addTag = (tag: Tag) => {
+  const addTag = (tag: ITag) => {
     tags.value.push(tag);
   };
-  const removeTag = (tag: Tag) => {
+  const removeTag = (tag: ITag) => {
     const index = tags.value.findIndex((t) => t.id === tag.id);
     tags.value.splice(index, 1);
   };
-  const editTag = (tag: Tag) => {
+  const editTag = (tag: ITag) => {
     const index = tags.value.findIndex((t) => t.id === tag.id);
     tags.value[index] = tag;
   };

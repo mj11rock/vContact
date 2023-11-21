@@ -13,7 +13,7 @@
       />
     </div>
     <div
-      v-if="searchResults.length"
+      v-if="searchResults.length && focused"
       :style="`bottom: -${culaculateHeight()}px`"
       class="absolute border w-2/3 h-fit z-10 shadow-lg container mx-auto bg-white"
     >
@@ -46,12 +46,10 @@ const focused = ref(false);
 
 const handleSearch = () => {
   const foundList = searchContacts(searchString.value);
-  console.log(foundList);
   searchResults.value = foundList;
 };
 const handleBlur = () => {
   focused.value = false;
-  searchResults.value = [];
 };
 const culaculateHeight = () => {
   if (!searchResults.value.length) return;

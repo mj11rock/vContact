@@ -1,11 +1,11 @@
 import {ref, computed} from "vue";
 import {defineStore} from "pinia";
 import initialList from "@/data/contacts.json";
-import type {IContact} from "@/types";
+import type {IContact, ITag} from "@/types";
 import {useTags} from "./tags";
 
 export const useContacts = defineStore("contacts", () => {
-  const tags = useTags();
+  const tagsStore = useTags();
 
   const contacts = ref<IContact[]>(initialList);
   const contactsAmount = computed(() => contacts.value.length);
@@ -32,14 +32,16 @@ export const useContacts = defineStore("contacts", () => {
       const contactName = contact.name.toLowerCase();
       const contactEmail = contact.email.toLowerCase();
       const contactPhone = contact.phone.toLowerCase();
-      // const contactTag = tags[contact.tag].toLowerCase();
+      const contactTag = tagsStore.tags.find(
+        (tag: ITag) => tag.id === contact.tag
+      );
       const lowerCaseQuery = query.toLowerCase();
 
       return (
         contactName.includes(lowerCaseQuery) ||
         contactEmail.includes(lowerCaseQuery) ||
-        contactPhone.includes(lowerCaseQuery)
-        // contactTag.includes(lowerCaseQuery)
+        contactPhone.includes(lowerCaseQuery) ||
+        contactTag?.name.includes(lowerCaseQuery)
       );
     });
   };
