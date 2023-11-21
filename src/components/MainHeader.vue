@@ -7,8 +7,8 @@
         class="mx-auto border active:border-blue-400 focus:border-blue-400 w-2/3 px-4 outline-none h-12 rounded-md"
         type="search"
         placeholder="search"
-        @focus="focused = true"
-        @blur="handleBlur"
+        @focus="handleFocusIn"
+        @focusout="handleFocusOut"
         v-model="searchString"
       />
     </div>
@@ -26,6 +26,7 @@
         :email="item.email"
         :phone="item.phone"
         :tag="item.tag"
+        @click="focused = false"
       />
     </div>
   </header>
@@ -48,18 +49,27 @@ const handleSearch = () => {
   const foundList = searchContacts(searchString.value);
   searchResults.value = foundList;
 };
-const handleBlur = () => {
-  focused.value = false;
+
+const handleFocusIn = () => {
+  focused.value = true;
+  if (searchResults.value.length) {
+    handleSearch();
+  }
+};
+const handleFocusOut = (e: FocusEvent) => {
+  if (e.relatedTarget === null) {
+    focused.value = false;
+  }
 };
 const culaculateHeight = () => {
   if (!searchResults.value.length) return;
-  let result = 1;
 
+  let result = 1;
   if (searchResults.value.length === 1) {
     return 30;
   }
   if (searchResults.value.length % 2 === 0) {
-    result = searchResults.value.length + 3;
+    result = (searchResults.value.length % 2) + 3;
   } else {
     result = searchResults.value.length + 2;
   }

@@ -1,19 +1,19 @@
 <template>
-  <main class="container mx-auto">
-    <div class="flex flex-row">
-      <div class="w-1/3">
+  <main class="container w-2/3 mx-auto">
+    <div class="flex flex-col lg:flex-row">
+      <div class="w-full lg:w-1/3">
         <h1 class="font-bold text-3xl mb-6">Add contact</h1>
         <AddContact ref="addRef" />
       </div>
-      <div class="ml-6 pl-6 border-l">
+      <div class="pl-0 lg:pl-6 w-full lg:w-1/3 border-none mt-6 lg:ml-6 lg:mt-0 lg:border-l">
         <h1 class="font-bold text-3xl mb-6">Manage Tags</h1>
         <ManageTags />
       </div>
     </div>
-    <div class="actions flex flex-row gap-6 w-1/3 mt-4 ml-4">
+    <div class="actions justify-between flex flex-row gap-6 w-full lg:w-1/3 mt-4 lg:ml-0">
       <button
         @click="handleAdd"
-        class="h-8 border text-center rounded-lg w-1/2 text-white bg-blue-400"
+        class="h-8 text-center rounded-lg w-1/2 text-white bg-blue-400"
       >
         Save
       </button>

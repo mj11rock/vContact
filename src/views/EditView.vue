@@ -1,5 +1,5 @@
 <template>
-  <main class="container mx-auto">
+  <main class="container w-2/3 mx-auto">
     <div class="flex flex-row items-center">
       <h1 class="mb-5 text-3xl">Edit Contact</h1>
     </div>
@@ -7,7 +7,7 @@
       <ContactsEdit ref="editRef" :id="id" />
     </div>
     <div
-      class="actions flex flex-row items-center justify-between gap-6 w-1/3 mt-4"
+      class="actions flex flex-row items-center justify-between gap-6 w-2/3 mt-4"
     >
       <button
         @click="handleSave"

@@ -16,17 +16,19 @@
     </div>
     <div class="mt-6">
       <h3 class="text-blue-500 font-semibold text-xl">Enter new tag</h3>
-      <input
+      <div class="flex flex-row justify-between lg:justify-start">
+        <input
         v-model="tagName"
         type="text"
-        class="border border-gray-600 rounded-md h-8 px-2"
+        class="border w-2/3 inline-block border-gray-600 rounded-md h-8 px-2"
       />
       <button
         @click="handleAddTag"
-        class="ml-2 text-white bg-blue-400 px-2 py-1 rounded-md"
+        class="ml-0.5 lg:ml-2 inline-block text-white bg-blue-400 px-2 py-1 rounded-md"
       >
         Add tag
       </button>
+      </div>
     </div>
   </div>
 </template>

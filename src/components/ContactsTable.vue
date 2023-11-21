@@ -1,9 +1,9 @@
 <template>
   <div class="">
     <div
-      class="flex flex-row justify-between text-left items-center gap-4 border-b"
+      class="flex flex-row justify-between text-left items-center gap-0 lg:gap-4 border-b"
     >
-      <div class="w-[16%]" v-for="(item, index) in HEADERS" :key="index">
+      <div class="w-[15%] lg:w-[16%]" v-for="(item, index) in HEADERS" :key="index">
         {{ item }}
       </div>
     </div>

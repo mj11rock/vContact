@@ -4,7 +4,7 @@
 
 @layer components {
   .action-button {
-    @apply w-[70px] hover:cursor-pointer active:scale-95 rounded-lg;
+    @apply  hover:cursor-pointer rounded-full p-1;
   }
   .form-input {
     @apply flex flex-col relative text-lg first:mt-0 mt-6;
@@ -14,7 +14,7 @@
   }
   .form-input input,
   select {
-    @apply border border-gray-600 px-2 h-16 rounded-md w-1/3;
+    @apply border border-gray-600 px-2 h-16 rounded-md w-full;
   }
   button {
     @apply active:scale-95 transition-transform;
