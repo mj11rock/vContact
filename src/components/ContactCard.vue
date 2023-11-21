@@ -67,7 +67,6 @@ const contactsStore = useContacts();
 
 const tagsList = tagsStore.tags;
 const handleEdit = () => {
-  console.log('edit')
   router.push(`/edit/${props.id}`);
 };
 const handleRemove = () => {
